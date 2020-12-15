@@ -3784,7 +3784,9 @@ p.form-message.error {
 	padding-bottom: 15px;
 }
 
-
+.nav-item{
+    cursor: pointer!important;
+}
 
 
 
