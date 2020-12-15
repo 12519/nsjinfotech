@@ -1,191 +1,118 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-   
-    <!--====== Required meta tags ======-->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!--====== Title ======-->
-    <title>Edubin - LMS Education HTML Template</title>
-    
-    <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+  <!--====== Required meta tags ======-->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--====== Slick css ======-->
-    <link rel="stylesheet" href="css/slick.css">
+  <!--====== Title ======-->
+  <title>Edubin - LMS Education HTML Template</title>
 
-    <!--====== Animate css ======-->
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <!--====== Nice Select css ======-->
-    <link rel="stylesheet" href="css/nice-select.css">
-    
-    <!--====== Nice Number css ======-->
-    <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <!--====== Magnific Popup css ======-->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+  <!--====== Favicon Icon ======-->
+  <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    
-    <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    
-    <!--====== Default css ======-->
-    <link rel="stylesheet" href="css/default.css">
-    
-    <!--====== Style css ======-->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!--====== Responsive css ======-->
-    <link rel="stylesheet" href="css/responsive.css">
-    <script>
-    fetch("./header.html")
-      .then(response => {
-        return response.text()
-      })
-      .then(data => {
-        document.querySelector("header").innerHTML = data;
-      });
-    fetch("./footer.html")
-      .then(response => {
-        return response.text()
-      })
-      .then(data => {
-        document.querySelector("footer").innerHTML = data;
-      });
-  
-      window.addEventListener('DOMContentLoaded', (event) => {
-       
-              fetch("./main.html")
-                .then(response => {
-                  return response.text()
-                })
-                .then(data => {
-                  document.getElementById("content").innerHTML = data;
-                });
-        setTimeout(() => {
-          let navItems = document.getElementsByClassName('nav-item'); 
-          for(let i=0;i<navItems.length;i++){
-            navItems[i].addEventListener('click', function ($event) {
-              let page = $event.currentTarget.firstElementChild.getAttribute('data');
-              fetch(page)
-                .then(response => {
-                  return response.text()
-                })
-                .then(data => {
-                  document.getElementById("content").innerHTML = data;
-                });
-            })
-          }
-        }, 2000);
-      });  
-</script>
+  <!--====== Slick css ======-->
+  <link rel="stylesheet" href="css/slick.css">
 
+  <!--====== Animate css ======-->
+  <link rel="stylesheet" href="css/animate.css">
 
+  <!--====== Nice Select css ======-->
+  <link rel="stylesheet" href="css/nice-select.css">
+
+  <!--====== Nice Number css ======-->
+  <link rel="stylesheet" href="css/jquery.nice-number.min.css">
+
+  <!--====== Magnific Popup css ======-->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!--====== Fontawesome css ======-->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  <!--====== Default css ======-->
+  <link rel="stylesheet" href="css/default.css">
+
+  <!--====== Style css ======-->
+
+  <!--====== Responsive css ======-->
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-   
-    <!--====== PRELOADER PART START ======-->
-    
-    <div class="preloader">
-        <div class="loader rubix-cube">
-            <div class="layer layer-1"></div>
-            <div class="layer layer-2"></div>
-            <div class="layer layer-3 color-1"></div>
-            <div class="layer layer-4"></div>
-            <div class="layer layer-5"></div>
-            <div class="layer layer-6"></div>
-            <div class="layer layer-7"></div>
-            <div class="layer layer-8"></div>
-        </div>
+
+  <div class="preloader">
+    <div class="loader rubix-cube">
+      <div class="layer layer-1"></div>
+      <div class="layer layer-2"></div>
+      <div class="layer layer-3 color-1"></div>
+      <div class="layer layer-4"></div>
+      <div class="layer layer-5"></div>
+      <div class="layer layer-6"></div>
+      <div class="layer layer-7"></div>
+      <div class="layer layer-8"></div>
     </div>
-    
-    <!--====== PRELOADER PART START ======-->
-    
+  </div>
+  <header></header>
+  <div id="content"></div>
 
-    <!--====== HEADER PART ENDS ======-->
-   <header></header>
-   <div id="content"></div>
-    <!--====== SEARCH BOX PART START ======-->
-    
-<!--    <div class="search-box">-->
-<!--        <div class="serach-form">-->
-<!--            <div class="closebtn">-->
-<!--                <span></span>-->
-<!--                <span></span>-->
-<!--            </div>-->
-<!--            <form action="#">-->
-<!--                <input type="text" placeholder="Search by keyword">-->
-<!--                <button><i class="fa fa-search"></i></button>-->
-<!--            </form>-->
-<!--        </div> &lt;!&ndash; serach form &ndash;&gt;-->
-<!--    </div>-->
-<!--    -->
-    <!--====== SEARCH BOX PART ENDS ======-->
-   
-    <!--====== SLIDER PART START ======-->
-    <!--====== FOOTER PART START ======-->
-    
-<footer></footer>
-    <!--====== FOOTER PART ENDS ======-->
-   
-    <!--====== BACK TO TP PART START ======-->
-    
-    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-    
-    <!--====== BACK TO TP PART ENDS ======-->
-   
-    
-    
-    
-    
-    
-    
-    
-    <!--====== jquery js ======-->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+  <footer></footer>
 
-    <!--====== Bootstrap js ======-->
-    <script src="js/bootstrap.min.js"></script>
-    
-    <!--====== Slick js ======-->
-    <script src="js/slick.min.js"></script>
-    
-    <!--====== Magnific Popup js ======-->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    
-    <!--====== Counter Up js ======-->
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    
-    <!--====== Nice Select js ======-->
-    <script src="js/jquery.nice-select.min.js"></script>
-    
-    <!--====== Nice Number js ======-->
-    <script src="js/jquery.nice-number.min.js"></script>
-    
-    <!--====== Count Down js ======-->
-    <script src="js/jquery.countdown.min.js"></script>
-    
-    <!--====== Validator js ======-->
-    <script src="js/validator.min.js"></script>
-    
-    <!--====== Ajax Contact js ======-->
-    <script src="js/ajax-contact.js"></script>
-    
-    <!--====== Main js ======-->
-    <script src="js/main.js"></script>
-    
-    <!--====== Map js ======-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="js/map-script.js"></script>
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
+
+  <!--SCRIPTS-->
+
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="js/vendor/jquery-1.12.4.min.js"></script>
+
+  <!--====== Bootstrap js ======-->
+  <script src="js/bootstrap.min.js"></script>
+  
+  <!--====== Slick js ======-->
+  <script src="js/slick.min.js"></script>
+  
+  <!--====== Magnific Popup js ======-->
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  
+  <!--====== Counter Up js ======-->
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  
+  <!--====== Nice Select js ======-->
+  <script src="js/jquery.nice-select.min.js"></script>
+  
+  <!--====== Nice Number js ======-->
+  <script src="js/jquery.nice-number.min.js"></script>
+  
+  <!--====== Count Down js ======-->
+  <script src="js/jquery.countdown.min.js"></script>
+  
+  <!--====== Validator js ======-->
+  <script src="js/validator.min.js"></script>
+  
+  <!--====== Ajax Contact js ======-->
+  <script src="js/ajax-contact.js"></script>
+  
+  <!--====== Main js ======-->
+  <script src="main.js"></script>
+  
+  <!--====== Map js ======-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
+  <script src="js/map-script.js"></script>
+
+  <script>
+
+
+
+  </script>
 </body>
+
 </html>

@@ -7,15 +7,58 @@
   Version: 1.0
 */
 
-
 $(function() {
     
     "use strict";
     
+    fetch("./header.html")
+    .then(response => {
+      return response.text()
+    })
+    .then(data => {
+      document.querySelector("header").innerHTML = data;
+    });
+  fetch("./footer.html")
+    .then(response => {
+      return response.text()
+    })
+    .then(data => {
+      document.querySelector("footer").innerHTML = data;
+    });
+  fetch("./main.html")
+    .then(response => {
+      return response.text()
+    })
+    .then(data => {
+      document.getElementById("content").innerHTML = data;
+      mainSlider();
+      loadOtherSliders();
+    });
     //===== Prealoder
     
     $(window).on('load', function(event) {
         $('.preloader').delay(500).fadeOut(500);
+    });
+
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+      setTimeout(() => {
+        let navItems = document.getElementsByClassName('nav-item');
+        for (let i = 0; i < navItems.length; i++) {
+          navItems[i].addEventListener('click', function ($event) {
+            let page = $event.currentTarget.firstElementChild.getAttribute('data');
+            fetch(page)
+              .then(response => {
+                return response.text()
+              })
+              .then(data => {
+                document.getElementById("content").innerHTML = data;
+                mainSlider();
+                loadOtherSliders();
+              });
+          })
+        }
+      }, 2000);
     });
     
     
@@ -113,12 +156,12 @@ $(function() {
             });
         }
     }
-    mainSlider();
     
     
-    //===== Slick Category Slied
+function loadOtherSliders(){
+      //===== Slick Category Slied
     
-    $('.category-slied').slick({
+      $('.category-slied').slick({
         dots: false,
         infinite: false,
         speed: 800,
@@ -299,6 +342,7 @@ $(function() {
         // instead of a settings object
         ]
     });
+}
     
     
     //===== Back to top
