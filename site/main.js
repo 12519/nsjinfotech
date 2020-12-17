@@ -1,5 +1,5 @@
 /*
-  Theme Name: Edubin - LMS Education HTML Template
+  Theme Name: VedVision - LMS Education HTML Template
   Author: Humayun Ahmed
   Author URL: https://themeforest.net/user/pixelcurve
   Support: humayunahmed82@gmail.com

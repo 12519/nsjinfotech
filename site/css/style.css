@@ -1,5 +1,5 @@
 /*
-  Theme Name: Edubin - LMS Education HTML Template
+  Theme Name: VedVision - LMS Education HTML Template
   Author: ZeTheme
   Author URL: https://themeforest.net/user/pixelcurve
   Support: zetheme24@gmail.com
@@ -1085,7 +1085,6 @@ p {
 .about-event{
     -webkit-box-shadow: 0px 0px 191px 0px rgba(0,0,0,0.06);
     box-shadow: 0px 0px 191px 0px rgba(0,0,0,0.06);
-    padding: 65px 70px 37px;
     background-color: rgba(255, 255, 255, 0.95);
 }
 .about-event .event-title h3{
