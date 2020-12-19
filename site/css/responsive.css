@@ -2,7 +2,7 @@
   Theme Name: VedVision - LMS Education HTML Template
   Author: Humayun Ahmed
   Author URL: https://themeforest.net/user/pixelcurve
-  Support: humayunahmed82@gmail.com
+  Support: humayunahmed82.com
   Description: Creative  HTML5 template.
   Version: 1.0
 */
