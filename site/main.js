@@ -55,6 +55,13 @@ $(function() {
                 document.getElementById("content").innerHTML = data;
                 mainSlider();
                 loadOtherSliders();
+                window.location = '#';
+                if(document.getElementsByClassName('active').length){
+                  for(let i=0;i<document.getElementsByClassName('active').length;i++){
+                    document.getElementsByClassName('active')[i].classList.remove('active');
+                  }
+                }
+                $event.path[0].classList.add('active');
               });
           })
         }
