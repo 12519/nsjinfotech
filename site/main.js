@@ -87,13 +87,50 @@ $(function() {
                                   <li><i class="fa fa-star"></i></li>
                               </ul>
                               <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-                              <a href="#" class="main-btn ">Learn More</a>
+                              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.name}" onclick="registerPopup(${element.name})">Learn More</button>
   
                           </div>
                       </div> <!-- singel course -->
                   </div>
+                  <div class="modal fade" id="${element.name}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="${element.name}Title">Register for ${element.name}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                          <form>
+                          <div class="form-group">
+                          <label for="Name">Name</label>
+                          <input type="email" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
+                        </div>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          </div>
+                          <div class="form-group">
+                          <label for="phoneNumber">Phone number</label>
+                          <input type="email" class="form-control" id="phoneNumber" aria-describedby="phoneHelp" placeholder="Enter Phone number">
+                        </div>
+                        <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea type="email" class="form-control" rows="3" id="description" placeholder="Enter Description"></textarea>
+                      </div>
+                        </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Register</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                       `
                       }
+                      temp += ``
                     });
                     document.getElementById('course-list').innerHTML = temp;
                   }
@@ -525,14 +562,54 @@ function next(currentPage){
                       <li><i class="fa fa-star"></i></li>
                   </ul>
                   <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-                  <a href="#" class="main-btn ">Learn More</a>
+                  <button href="#" class="main-btn " onclick="registerPopup(${element.name})">Learn More</button>
   
               </div>
           </div> <!-- singel course -->
       </div>
+      <div class="modal fade" id="${element.name}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="${element.name}Title">Register for ${element.name}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
           `
         }
       });
       document.getElementById('course-list').innerHTML = temp;
     }
+}
+
+function registerPopup(id){
+  //$('#myModal').modal('toggle');
+  $(id).modal('show');
+  //$('#myModal').modal('hide');
 }
