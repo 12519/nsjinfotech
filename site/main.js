@@ -62,8 +62,12 @@ $(function() {
                   getCourses.send();
                   getCourses.onload = function (data) {
                     let temp = ""
-                    JSON.parse(getCourses.response).forEach(element => {
-                      temp += `
+                    totalCount = JSON.parse(getCourses.response).length;
+                    document.getElementById('total-count').innerHTML = totalCount;
+                    document.getElementById('current-count').innerHTML = end;
+                    JSON.parse(getCourses.response).forEach((element, index) => {
+                      if (index >= 0 && index <= 3) {
+                        temp += `
                       <div class="col-lg-3 col-md-4">
                       <div class="singel-course mt-30">
                           <div class="thum">
@@ -89,6 +93,7 @@ $(function() {
                       </div> <!-- singel course -->
                   </div>
                       `
+                      }
                     });
                     document.getElementById('course-list').innerHTML = temp;
                   }
@@ -249,7 +254,7 @@ function loadOtherSliders(){
         dots: false,
         infinite: true,
         speed: 800,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 2,
         autoplay: true,
         autoplaySpeed: 1000,
@@ -481,17 +486,53 @@ function loadOtherSliders(){
         enabled:true
       }
     });
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 });
+
+let start = 0;
+let end = 4;
+let limit = 4;
+let totalCount = 0;
+
+function next(currentPage){
+    end = currentPage*limit;
+    start = (end-limit)+1
+    let getCourses = new XMLHttpRequest(); // Load the Sound with XMLHttpRequest
+    getCourses.open("GET", "./courses.json", true); // Path to Audio File
+    getCourses.send();
+    getCourses.onload = function (data) {
+      let temp = ""
+      document.getElementById('course-list').innerHTML = temp;
+      document.getElementById('current-count').innerHTML = end;
+      JSON.parse(getCourses.response).forEach((element,index) => {
+        if(index >= start-1 && index <= end-1){
+          temp += `
+          <div class="col-lg-3 col-md-4">
+          <div class="singel-course mt-30">
+              <div class="thum">
+                  <div class="image">
+                      <img src="images/course/${element.image}" alt="Course">
+                  </div>
+                  <div class="price">
+                      <span>Free</span>
+                  </div>
+              </div>
+              <div class="cont text-center">
+                  <ul style="margin-bottom: 5px;">
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                      <li><i class="fa fa-star"></i></li>
+                  </ul>
+                  <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
+                  <a href="#" class="main-btn ">Learn More</a>
+  
+              </div>
+          </div> <!-- singel course -->
+      </div>
+          `
+        }
+      });
+      document.getElementById('course-list').innerHTML = temp;
+    }
+}

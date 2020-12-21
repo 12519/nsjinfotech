@@ -32,10 +32,10 @@
                             <li class="nav-item">
                                 <a class="active" id="courses-grid-tab" data-toggle="tab" href="#courses-grid" role="tab" aria-controls="courses-grid" aria-selected="true"><i class="fa fa-th-large"></i></a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a id="courses-list-tab" data-toggle="tab" href="#courses-list" role="tab" aria-controls="courses-list" aria-selected="false"><i class="fa fa-th-list"></i></a>
-                            </li>
-                            <li class="nav-item">Showning 4 0f 24 Results</li>
+                            </li> -->
+                            <li class="nav-item">Showning <span id="current-count"></span> 0f <span id="total-count"></span> Results</li>
                         </ul> <!-- nav -->
                         
                         <div class="courses-search float-right">
@@ -239,8 +239,8 @@
                                     <i class="fa fa-angle-left"></i>
                                 </a>
                             </li>
-                            <li class="page-item"><a class="active" href="#">1</a></li>
-                            <li class="page-item"><a href="#">2</a></li>
+                            <li class="page-item" onclick="next(1)"><a class="active" data="">1</a></li>
+                            <li class="page-item" onclick="next(2)"><a data="">2</a></li>
                             <li class="page-item"><a href="#">3</a></li>
                             <li class="page-item">
                                 <a href="#" aria-label="Next">
