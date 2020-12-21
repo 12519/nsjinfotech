@@ -56,6 +56,43 @@ $(function() {
                 mainSlider();
                 loadOtherSliders();
                 window.location = '#';
+                if (page == "courses.html") {
+                  let getCourses = new XMLHttpRequest(); // Load the Sound with XMLHttpRequest
+                  getCourses.open("GET", "./courses.json", true); // Path to Audio File
+                  getCourses.send();
+                  getCourses.onload = function (data) {
+                    let temp = ""
+                    JSON.parse(getCourses.response).forEach(element => {
+                      temp += `
+                      <div class="col-lg-3 col-md-4">
+                      <div class="singel-course mt-30">
+                          <div class="thum">
+                              <div class="image">
+                                  <img src="images/course/${element.image}" alt="Course">
+                              </div>
+                              <div class="price">
+                                  <span>Free</span>
+                              </div>
+                          </div>
+                          <div class="cont text-center">
+                              <ul style="margin-bottom: 5px;">
+                                  <li><i class="fa fa-star"></i></li>
+                                  <li><i class="fa fa-star"></i></li>
+                                  <li><i class="fa fa-star"></i></li>
+                                  <li><i class="fa fa-star"></i></li>
+                                  <li><i class="fa fa-star"></i></li>
+                              </ul>
+                              <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
+                              <a href="#" class="main-btn ">Learn More</a>
+  
+                          </div>
+                      </div> <!-- singel course -->
+                  </div>
+                      `
+                    });
+                    document.getElementById('course-list').innerHTML = temp;
+                  }
+                }
                 if(document.getElementsByClassName('active').length){
                   for(let i=0;i<document.getElementsByClassName('active').length;i++){
                     document.getElementsByClassName('active')[i].classList.remove('active');
