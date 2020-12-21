@@ -2427,7 +2427,7 @@ p {
 .courses-pagination .pagination .page-item{
     margin: 0 5px;
 }
-.courses-pagination .pagination .page-item a{
+.courses-pagination .pagination .page-item button{
     font-size: 15px;
     color: #07294d;
     width: 40px;
@@ -2439,8 +2439,8 @@ p {
     -webkit-transition: all 0.4s linear;
     transition: all 0.4s linear;
 }
-.courses-pagination .pagination .page-item a.active,
-.courses-pagination .pagination .page-item a:hover{
+.courses-pagination .pagination .page-item button.active,
+.courses-pagination .pagination .page-item button:hover{
     background-color: #3CB4C4;
     border-color: #3CB4C4;
 }

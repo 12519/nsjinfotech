@@ -30,5 +30,21 @@
     {
         "name": "DD",
         "image": "ds.jpg"
+    },
+    {
+        "name": "FF",
+        "image": "cs.jpg"
+    },
+    {
+        "name": "GG",
+        "image": "angular.jpg"
+    },
+    {
+        "name": "55",
+        "image": "angular.jpg"
+    },
+    {
+        "name": "DD",
+        "image": "ds.jpg"
     }
 ]
