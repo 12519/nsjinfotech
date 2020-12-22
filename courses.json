@@ -1,0 +1,191 @@
+[
+    {
+        "name": "Python",
+        "image": "python.jpg",
+        "id":"Python"
+    },
+    {
+        "name": "Cyber Security",
+        "image": "cyber_security.jpg",
+        "id": "cybersecurity"
+    },
+    {
+        "name": "Data Science",
+        "image": "data_science.jpg",
+        "id": "data_science"
+    },
+    {
+        "name": "Artificial Intelligence",
+        "image": "ai.jpg",
+        "id":"ai"
+    },
+    {
+        "name": "Block Chain",
+        "image": "block_chain.jpg",
+        "id": "block_chain"
+    },
+    {
+        "name": "Cloud Computing",
+        "image": "cloud_computing.jpg",
+        "id": "cloud_computing"
+    },
+    {
+        "name": "Robotic Process Automation",
+        "image": "rpa.jpg",
+        "id": "rpa"
+    },
+    {
+        "name": "Web Development",
+        "image": "web.jpg",
+        "id": "web"
+    },
+    {
+        "name": "Java",
+        "image": "java.jpg",
+        "id": "java"
+    },
+    {
+        "name": "Oracle SQL",
+        "image": "oracle_sql.jpg",
+        "id": "oracle_sql"
+    },
+    {
+        "name": "Oracle pl/SQL",
+        "image": "oracle_plsql.jpg",
+        "id": "oracle_plsql"
+    },
+    {
+        "name": "Oracle DBA",
+        "image": "oracle_dba.jpg",
+        "id": "oracle_dba"
+    },
+    {
+        "name": "Informatica",
+        "image": "informatica.jpg",
+        "id": "informatica"
+    },
+    {
+        "name": "IBM Cognos",
+        "image": "cognos.jpg",
+        "id": "cognos"
+    },
+
+    {
+        "name": "Microstrategy",
+        "image": "microstrategy.jpg",
+        "id": "microstrategy"
+    },
+
+    {
+        "name": "Tableu",
+        "image": "tableu.jpg",
+        "id": "tableu"
+    },
+
+    {
+        "name": "Qlik View",
+        "image": "qlik_view.jpg",
+        "id": "qlik_view"
+    },
+
+    {
+        "name": "Qlik Sense",
+        "image": "qlik_sense.jpg",
+        "id": "qlik_sense"
+    },
+
+    {
+        "name": "MSB",
+        "image": "msb.jpg",
+        "id": "msb"
+    },
+
+    {
+        "name": "AWS",
+        "image": "aws.jpg",
+        "id": "aws"
+    },
+
+    {
+        "name": "DevOps",
+        "image": "devops.png",
+        "id": "devops"
+    },
+
+    {
+        "name": "Microsoft Azure",
+        "image": "azure.jpg",
+        "id": "azure"
+    },
+
+    {
+        "name": ".Net",
+        "image": "net.jpg",
+        "id": "net"
+    },
+
+    {
+        "name": "ASP .Net",
+        "image": "net2.jpg",
+        "id": "net2"
+    },
+
+    {
+        "name": "C# .Net",
+        "image": "msnet.jpg",
+        "id": "msnet"
+    },
+
+    {
+        "name": "SQL Server DBA",
+        "image": "ms_sql_server.jpg",
+        "id": "ms_sql_server"
+    },
+
+    {
+        "name": "SharePoint",
+        "image": "sharepoint.jpg",
+        "id": "aws"
+    },
+
+    {
+        "name": "Selenium",
+        "image": "selenium.jpg",
+        "id": "selenium"
+    },
+
+    {
+        "name": "ETL Testing",
+        "image": "etl_testing.jpg",
+        "id": "etl_testing"
+    },
+
+    {
+        "name": "Manual Testing",
+        "image": "manual_testing.jpg",
+        "id": "manual_testing"
+    },
+
+    {
+        "name": "C Language",
+        "image": "cp.jpg",
+        "id": "cp"
+    },
+
+    {
+        "name": "C++",
+        "image": "c++.jpg",
+        "id": "cpp"
+    },
+    {
+        "name": "Spoken English",
+        "image": "spoken_english.jpg",
+        "id": "spoken_english"
+    },
+
+    {
+        "name": "Communication Skills",
+        "image": "communication_skills.jpg",
+        "id": "communication_skills"
+    }
+]
