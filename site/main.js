@@ -7,6 +7,8 @@
   Version: 1.0
 */
 
+
+
 $(function() {
     
     "use strict";
@@ -118,17 +120,17 @@ $(function() {
                   <li><i class="fa fa-star"></i></li>
                   <li><i class="fa fa-star"></i></li>
               </ul>
-              <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.name}" onclick="registerPopup(${element.name})">Register</button>
+              <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
+              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.id}" onclick="registerPopup(${element.name})">Register</button>
 
           </div>
       </div> <!-- singel course -->
   </div>
-  <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="${element.id}Title" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="${element.name}Title">Register for ${element.name}</h5>
+            <h5 class="modal-title" id="${element.id}Title">Register for ${element.name}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -578,7 +580,7 @@ function next(currentPage){
                       <li><i class="fa fa-star"></i></li>
                       <li><i class="fa fa-star"></i></li>
                   </ul>
-                  <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
+                  <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
                   <button href="#" class="main-btn " onclick="registerPopup(${element.name})">Register</button>
   
               </div>
@@ -633,18 +635,18 @@ function registerPopup(id){
   //$('#myModal').modal('hide');
 }
 
-function sendEmail() { 
-  Email.send({ 
-    Host: "smtp.gmail.com", 
-    Username: "maringantikc@gmail.com", 
-    Password: "9550730677", 
-    To: 'macharyakc@gmail.com', 
-    From: "maringantikc@gmail.com", 
-    Subject: "Sending Email using javascript", 
-    Body: "Well that was easy!!", 
-  }) 
-    .then(function (message) { 
-      alert("mail sent successfully") 
-    }); 
-} 
+function sendEmail() {
+  Email.send({
+    Host: "smtp.gmail.com",
+    Username: "maringantikc@gmail.com",
+    Password: "9550730677",
+    To: 'macharyakc@gmail.com',
+    From: "maringantikc@gmail.com",
+    Subject: "Sending Email using javascript",
+    Body: "Well that was easy!!",
+  })
+    .then(function (message) {
+      alert(message)
+    });
+}
 
