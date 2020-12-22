@@ -637,9 +637,10 @@ function registerPopup(id){
 
 function sendEmail() {
   Email.send({
-    Host: "smtp.gmail.com",
+    Host: "smtp.elasticemail.com",
     Username: "maringantikc@gmail.com",
-    Password: "9550730677",
+    Password: "64984B5E2D013B08CA5BA734B832F1F878EF",
+    port:2525,
     To: 'macharyakc@gmail.com',
     From: "maringantikc@gmail.com",
     Subject: "Sending Email using javascript",
