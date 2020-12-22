@@ -123,7 +123,7 @@ $(function() {
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Register</button>
+                            <button type="button" class="btn btn-primary" onclick="sendEmail()">Register</button>
                           </div>
                         </div>
                       </div>
@@ -598,7 +598,7 @@ function next(currentPage){
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Register</button>
+            <button type="button" class="btn btn-primary" onclick="sendEmail()">Register</button>
           </div>
         </div>
       </div>
@@ -615,3 +615,18 @@ function registerPopup(id){
   $(id).modal('show');
   //$('#myModal').modal('hide');
 }
+
+function sendEmail() { 
+  Email.send({ 
+    Host: "smtp.gmail.com", 
+    Username: "maringantikc@gmail.com", 
+    Password: "9550730677", 
+    To: 'macharyakc@gmail.com', 
+    From: "maringantikc@gmail.com", 
+    Subject: "Sending Email using javascript", 
+    Body: "Well that was easy!!", 
+  }) 
+    .then(function (message) { 
+      alert("mail sent successfully") 
+    }); 
+} 

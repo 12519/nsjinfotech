@@ -1,50 +1,158 @@
 [
     {
-        "name": "Angular",
-        "image": "angular.jpg"
+        "name": "Python",
+        "image": "python.jpg"
     },
     {
-        "name": "Angular1",
-        "image": "angular.jpg"
+        "name": "Cyber Security",
+        "image": "cyber_security.jpg"
     },
     {
-        "name": "Angular2",
-        "image": "angular.jpg"
+        "name": "Data Science",
+        "image": "data_science.jpg"
     },
     {
-        "name": "Angular3",
-        "image": "angular.jpg"
+        "name": "Artificial Intelligence",
+        "image": "ai.jpg"
     },
     {
-        "name": "FF",
-        "image": "cs.jpg"
+        "name": "Block Chain",
+        "image": "block_chain.jpg"
     },
     {
-        "name": "GG",
-        "image": "angular.jpg"
+        "name": "Cloud Computing",
+        "image": "cloud_computing.jpg"
     },
     {
-        "name": "55",
-        "image": "angular.jpg"
+        "name": "Robotic Process Automation",
+        "image": "rpa.jpg"
     },
     {
-        "name": "DD",
-        "image": "ds.jpg"
+        "name": "Web Development",
+        "image": "web.jpg"
     },
     {
-        "name": "FF",
-        "image": "cs.jpg"
+        "name": "Java",
+        "image": "java.jpg"
     },
     {
-        "name": "GG",
-        "image": "angular.jpg"
+        "name": "Oracle SQL",
+        "image": "oracle_sql.jpg"
     },
     {
-        "name": "55",
-        "image": "angular.jpg"
+        "name": "Oracle pl/SQL",
+        "image": "oracle_plsql.jpg"
     },
     {
-        "name": "DD",
-        "image": "ds.jpg"
+        "name": "Oracle DBA",
+        "image": "oracle_dba.jpg"
+    },
+    {
+        "name": "Informatica Online Training",
+        "image": "informatica.jpg"
+    },
+    {
+        "name": "IBM Cognos",
+        "image": "cognos.jpg"
+    },
+
+    {
+        "name": "Microstrategy Online Training",
+        "image": "microstrategy.jpg"
+    },
+
+    {
+        "name": "Tableu Online Training",
+        "image": "tableu.jpg"
+    },
+
+    {
+        "name": "Qlik View Online Training",
+        "image": "qlik_view.jpg"
+    },
+
+    {
+        "name": "Qlik Sense Online Training",
+        "image": "qlik_sense.jpg"
+    },
+
+    {
+        "name": "MSB Online training",
+        "image": "msb.jpg"
+    },
+
+    {
+        "name": "AWS Online Training",
+        "image": "aws.jpg"
+    },
+
+    {
+        "name": "DevOps Online Training",
+        "image": "devops.png"
+    },
+
+    {
+        "name": "Microsoft Azure Online Training",
+        "image": "azure.jpg"
+    },
+
+    {
+        "name": ".Net Online Training",
+        "image": "net.jpg"
+    },
+
+    {
+        "name": "ASP .Net Online Training",
+        "image": "net2.jpg"
+    },
+
+    {
+        "name": "C# .Net Online Training",
+        "image": "msnet.jpg"
+    },
+
+    {
+        "name": "SQL Server DBA Online Training",
+        "image": "ms_sql_server.jpg"
+    },
+
+    {
+        "name": "SharePoint Online Training",
+        "image": "sharepoint.jpg"
+    },
+
+    {
+        "name": "Selenium Online Training",
+        "image": "selenium.jpg"
+    },
+
+    {
+        "name": "ETL Testing Online Training",
+        "image": "etl_testing.jpg"
+    },
+
+    {
+        "name": "Manual Testing Online Training",
+        "image": "manual_testing.jpg"
+    },
+
+    {
+        "name": "Spoken English",
+        "image": "spoken_english.jpg"
+    },
+
+    {
+        "name": "Communication Skills",
+        "image": "communication_skills.jpg"
+    },
+
+    {
+        "name": "C Language",
+        "image": "cp.jpg"
+    },
+
+    {
+        "name": "C++",
+        "image": "c++.jpg"
     }
 ]
