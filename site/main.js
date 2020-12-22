@@ -46,106 +46,121 @@ $(function() {
         let navItems = document.getElementsByClassName('nav-item');
         for (let i = 0; i < navItems.length; i++) {
           navItems[i].addEventListener('click', function ($event) {
-            let page = $event.currentTarget.firstElementChild.getAttribute('data');
-            fetch(page)
-              .then(response => {
-                return response.text()
-              })
-              .then(data => {
-                document.getElementById("content").innerHTML = data;
-                mainSlider();
-                loadOtherSliders();
-                window.location = '#';
-                if (page == "courses.html") {
-                  let getCourses = new XMLHttpRequest(); // Load the Sound with XMLHttpRequest
-                  getCourses.open("GET", "./courses.json", true); // Path to Audio File
-                  getCourses.send();
-                  getCourses.onload = function (data) {
-                    let temp = ""
-                    totalCount = JSON.parse(getCourses.response).length;
-                    document.getElementById('total-count').innerHTML = totalCount;
-                    document.getElementById('current-count').innerHTML = end;
-                    JSON.parse(getCourses.response).forEach((element, index) => {
-                      if (index >= 0 && index <= 7) {
-                        temp += `
-                      <div class="col-lg-3 col-md-4">
-                      <div class="singel-course mt-30">
-                          <div class="thum">
-                              <div class="image">
-                                  <img src="images/course/${element.image}" alt="Course">
-                              </div>
-                              <div class="price">
-                                  <span>Free</span>
-                              </div>
-                          </div>
-                          <div class="cont text-center">
-                              <ul style="margin-bottom: 5px;">
-                                  <li><i class="fa fa-star"></i></li>
-                                  <li><i class="fa fa-star"></i></li>
-                                  <li><i class="fa fa-star"></i></li>
-                                  <li><i class="fa fa-star"></i></li>
-                                  <li><i class="fa fa-star"></i></li>
-                              </ul>
-                              <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-                              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.name}" onclick="registerPopup(${element.name})">Register</button>
-  
-                          </div>
-                      </div> <!-- singel course -->
-                  </div>
-                  <div class="modal fade" id="${element.name}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="${element.name}Title">Register for ${element.name}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                          <form>
-                          <div class="form-group">
-                          <label for="Name">Name</label>
-                          <input type="email" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
-                        </div>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                          </div>
-                          <div class="form-group">
-                          <label for="phoneNumber">Phone number</label>
-                          <input type="email" class="form-control" id="phoneNumber" aria-describedby="phoneHelp" placeholder="Enter Phone number">
-                        </div>
-                        <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea type="email" class="form-control" rows="3" id="description" placeholder="Enter Description"></textarea>
-                      </div>
-                        </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="sendEmail()">Register</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                      `
-                      }
-                      temp += ``
-                    });
-                    document.getElementById('course-list').innerHTML = temp;
-                  }
-                }
-                if(document.getElementsByClassName('active').length){
-                  for(let i=0;i<document.getElementsByClassName('active').length;i++){
-                    document.getElementsByClassName('active')[i].classList.remove('active');
-                  }
-                }
-                $event.path[0].classList.add('active');
-              });
+            setnavigation($event);
           })
         }
       }, 2000);
     });
+
+  let start = 0;
+  let end = 8;
+  let limit = 8;
+  let totalCount = 0;
+
+    function setnavigation($event){
+      let page = $event.currentTarget.firstElementChild.getAttribute('data');
+      fetch(page)
+        .then(response => {
+          return response.text()
+        })
+        .then(data => {
+          document.getElementById("content").innerHTML = data;
+          mainSlider();
+          loadOtherSliders();
+          window.location = '#';
+          if (page == "courses.html") {
+            let getCourses = new XMLHttpRequest(); // Load the Sound with XMLHttpRequest
+            getCourses.open("GET", "./courses.json", true); // Path to Audio File
+            getCourses.send();
+            getCourses.onload = function (data) {
+              let temp = ""
+              document.getElementById('course-list').innerHTML = temp;
+              totalCount = JSON.parse(getCourses.response).length;
+              document.getElementById('total-count').innerHTML = totalCount;      
+              document.getElementById('start-count').innerHTML = start;
+              document.getElementById('current-count').innerHTML = end;
+              JSON.parse(getCourses.response).forEach((element, index) => {
+                if (index >= 0 && index <= 7) {
+                  temp += getTemp(element);
+                }
+                
+              });
+              document.getElementById('course-list').innerHTML = temp;
+            }
+          }
+          if(document.getElementsByClassName('active').length){
+            for(let i=0;i<document.getElementsByClassName('active').length;i++){
+              document.getElementsByClassName('active')[i].classList.remove('active');
+            }
+          }
+          $event.path[0].classList.add('active');
+        }).catch(err => {
+          console.log(err);
+        });
+    }
+
+    function getTemp(element){
+      return `                <div class="col-lg-3 col-md-4">
+      <div class="singel-course mt-30">
+          <div class="thum">
+              <div class="image">
+                  <img src="images/course/${element.image}" alt="Course">
+              </div>
+              <div class="price">
+                  <span>Free</span>
+              </div>
+          </div>
+          <div class="cont text-center">
+              <ul style="margin-bottom: 5px;">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+              </ul>
+              <a href="courses-singel.html"><h4>Learn ${element.name} from beginner to advanced</h4></a>
+              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.name}" onclick="registerPopup(${element.name})">Register</button>
+
+          </div>
+      </div> <!-- singel course -->
+  </div>
+  <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="${element.name}Title">Register for ${element.name}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form>
+          <div class="form-group">
+          <label for="Name">Name</label>
+          <input type="email" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
+        </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+          <label for="phoneNumber">Phone number</label>
+          <input type="email" class="form-control" id="phoneNumber" aria-describedby="phoneHelp" placeholder="Enter Phone number">
+        </div>
+        <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="email" class="form-control" rows="3" id="description" placeholder="Enter Description"></textarea>
+      </div>
+        </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="sendEmail()">Register</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    }
     
     
     //===== Search
@@ -540,6 +555,8 @@ function next(currentPage){
       let temp = ""
       document.getElementById('course-list').innerHTML = temp;
       document.getElementById('current-count').innerHTML = end;
+      document.getElementById('start-count').innerHTML = start;
+
       JSON.parse(getCourses.response).forEach((element,index) => {
         if(index >= start-1 && index <= end-1){
           temp += `
@@ -630,3 +647,4 @@ function sendEmail() {
       alert("mail sent successfully") 
     }); 
 } 
+

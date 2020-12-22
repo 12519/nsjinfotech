@@ -1238,6 +1238,11 @@ p {
     padding-bottom: 8px;
     -webkit-transition: all 0.4s linear;
     transition: all 0.4s linear;
+    max-height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    max-width: 100%;
 }
 .singel-course .cont h4:hover{
     color: #3CB4C4;
