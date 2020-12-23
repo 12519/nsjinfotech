@@ -126,42 +126,42 @@ $(function() {
           </div>
       </div> <!-- singel course -->
   </div>
-  <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="${element.id}Title" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="${element.id}Title">Register for ${element.name}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <form>
-          <div class="form-group">
-          <label for="Name">Name</label>
-          <input type="email" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
-        </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-          <label for="phoneNumber">Phone number</label>
-          <input type="email" class="form-control" id="phoneNumber" aria-describedby="phoneHelp" placeholder="Enter Phone number">
-        </div>
-        <div class="form-group">
-        <label for="description">Description</label>
-        <textarea type="email" class="form-control" rows="3" id="description" placeholder="Enter Description"></textarea>
+  <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="${element.id}Title">Register for ${element.name}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-        </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="sendEmail()">Register</button>
-          </div>
-        </div>
+      <div class="modal-body">
+      <form>
+      <div class="form-group">
+      <label for="name${element.id}">Name</label>
+      <input type="email" class="form-control" id="name${element.id}" aria-describedby="emailHelp" placeholder="Enter name">
+    </div>
+      <div class="form-group">
+        <label for="email${element.id}">Email address</label>
+        <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email">
       </div>
-    </div>`;
+      <div class="form-group">
+      <label for="phoneNumber${element.id}">Phone number</label>
+      <input type="email" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number">
+    </div>
+    <div class="form-group">
+    <label for="description${element.id}">Description</label>
+    <textarea type="email" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
+  </div>
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="sendEmail(${element.name},${element.id})">Register</button>
+      </div>
+    </div>
+  </div>
+</div>`;
     }
     
     
@@ -586,11 +586,11 @@ function next(currentPage){
               </div>
           </div> <!-- singel course -->
       </div>
-      <div class="modal fade" id="${element.name}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="${element.name}Title">Register for ${element.name}</h5>
+            <h5 class="modal-title" id="${element.id}Title">Register for ${element.name}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -598,26 +598,26 @@ function next(currentPage){
           <div class="modal-body">
           <form>
           <div class="form-group">
-          <label for="Name">Name</label>
-          <input type="email" class="form-control" id="Name" aria-describedby="emailHelp" placeholder="Enter name">
+          <label for="name${element.id}">Name</label>
+          <input type="email" class="form-control" id="name${element.id}" aria-describedby="emailHelp" placeholder="Enter name">
         </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <label for="email${element.id}">Email address</label>
+            <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email">
           </div>
           <div class="form-group">
-          <label for="phoneNumber">Phone number</label>
-          <input type="email" class="form-control" id="phoneNumber" aria-describedby="phoneHelp" placeholder="Enter Phone number">
+          <label for="phoneNumber${element.id}">Phone number</label>
+          <input type="email" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number">
         </div>
         <div class="form-group">
-        <label for="description">Description</label>
-        <textarea type="email" class="form-control" rows="3" id="description" placeholder="Enter Description"></textarea>
+        <label for="description${element.id}">Description</label>
+        <textarea type="email" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
       </div>
         </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="sendEmail()">Register</button>
+            <button type="button" class="btn btn-primary" onclick="sendEmail(${element.name},${element.id})">Register</button>
           </div>
         </div>
       </div>
@@ -635,19 +635,5 @@ function registerPopup(id){
   //$('#myModal').modal('hide');
 }
 
-function sendEmail() {
-  Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "maringantikc@gmail.com",
-    Password: "64984B5E2D013B08CA5BA734B832F1F878EF",
-    port:2525,
-    To: 'macharyakc@gmail.com',
-    From: "maringantikc@gmail.com",
-    Subject: "Sending Email using javascript",
-    Body: "Well that was easy!!",
-  })
-    .then(function (message) {
-      alert(message)
-    });
-}
+
 
