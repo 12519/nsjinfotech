@@ -121,7 +121,7 @@ $(function() {
                   <li><i class="fa fa-star"></i></li>
               </ul>
               <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.id}" onclick="registerPopup(${element.id})">Register</button>
+              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.id}" onclick="registerPopup('${element.id}')">Register</button>
 
           </div>
       </div> <!-- singel course -->
@@ -136,28 +136,28 @@ $(function() {
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form id="${element.id}form">
       <div class="form-group">
-      <label for="name${element.id}">Name</label>
-      <input type="email" class="form-control" id="name${element.id}" aria-describedby="emailHelp" placeholder="Enter name">
+      <label for="name${element.id}">Name*</label>
+      <input type="text" class="form-control" id="name${element.id}" aria-describedby="nameHelp" placeholder="Enter name" required>
     </div>
       <div class="form-group">
-        <label for="email${element.id}">Email address</label>
-        <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email">
+        <label for="email${element.id}">Email address*</label>
+        <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email" required>
       </div>
       <div class="form-group">
-      <label for="phoneNumber${element.id}">Phone number</label>
-      <input type="email" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number">
+      <label for="phoneNumber${element.id}">Phone number*</label>
+      <input type="number" maxlength="10" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number" required>
     </div>
     <div class="form-group">
     <label for="description${element.id}">Description</label>
-    <textarea type="email" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
+    <textarea type="text" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
   </div>
     </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
+        <button type="submit" class="btn btn-primary" id="${element.id}submit" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
       </div>
     </div>
   </div>
@@ -561,68 +561,7 @@ function next(currentPage){
 
       JSON.parse(getCourses.response).forEach((element,index) => {
         if(index >= start-1 && index <= end-1){
-          temp += `
-          <div class="col-lg-3 col-md-4">
-          <div class="singel-course mt-30">
-              <div class="thum">
-                  <div class="image">
-                      <img src="images/course/${element.image}" alt="Course">
-                  </div>
-                  <div class="price">
-                      <span>Free</span>
-                  </div>
-              </div>
-              <div class="cont text-center">
-                  <ul style="margin-bottom: 5px;">
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                  </ul>
-                  <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-                  <button href="#" class="main-btn " onclick="registerPopup(${element.id})">Register</button>
-  
-              </div>
-          </div> <!-- singel course -->
-      </div>
-      <div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="${element.id}Title">Register for ${element.name}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <form>
-          <div class="form-group">
-          <label for="name${element.id}">Name</label>
-          <input type="email" class="form-control" id="name${element.id}" aria-describedby="emailHelp" placeholder="Enter name">
-        </div>
-          <div class="form-group">
-            <label for="email${element.id}">Email address</label>
-            <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-          <label for="phoneNumber${element.id}">Phone number</label>
-          <input type="email" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number">
-        </div>
-        <div class="form-group">
-        <label for="description${element.id}">Description</label>
-        <textarea type="email" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
-      </div>
-        </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
-          </div>
-        </div>
-      </div>
-    </div>
-          `
+          temp += getTemp(element);
         }
       });
       document.getElementById('course-list').innerHTML = temp;
@@ -632,7 +571,110 @@ function next(currentPage){
 function registerPopup(id){
   //$('#myModal').modal('toggle');
   $(id).modal('show');
+  let forms = document.forms;
+  for (let i = 0; i < forms.length; i++) {
+    if (forms[i].id == id + 'form') {
+      document.getElementById(id + 'submit').disabled = true;
+      forms[i].onchange = function () {
+        let isFormvalid = forms[i].checkValidity();
+        document.getElementById(id + 'submit').disabled = !isFormvalid;
+        let elements = forms[i].elements;
+        for (let j = 0; j < elements.length; j++) {
+          if (!forms[i].elements[j].checkValidity()) {
+            forms[i].elements[j].style.borderColor = 'red';
+          }
+          else {
+            forms[i].elements[j].style.borderColor = 'green';
+            if(forms[i].elements[j].type == 'email'){
+              let regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+              if(regex.test(forms[i].elements[j].value)){
+                forms[i].elements[j].style.borderColor = 'green';
+                document.getElementById(id + 'submit').disabled = false;
+              }
+              else{
+                forms[i].elements[j].style.borderColor = 'red';
+                document.getElementById(id + 'submit').disabled = true;
+              }
+            }
+            else if(forms[i].elements[j].type == 'number'){
+                if((forms[i].elements[j].value).length <10){
+                  forms[i].elements[j].style.borderColor = 'red';
+                  document.getElementById(id + 'submit').disabled = true;
+                }
+                else{
+                  forms[i].elements[j].style.borderColor = 'green';
+                  document.getElementById(id + 'submit').disabled = false;
+                }
+            }
+          }
+        }
+      }
+    }
+  }
   //$('#myModal').modal('hide');
+}
+
+function getTemp(element){
+  return `                <div class="col-lg-3 col-md-4">
+  <div class="singel-course mt-30">
+      <div class="thum">
+          <div class="image">
+              <img src="images/course/${element.image}" alt="Course">
+          </div>
+          <div class="price">
+              <span>Free</span>
+          </div>
+      </div>
+      <div class="cont text-center">
+          <ul style="margin-bottom: 5px;">
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+              <li><i class="fa fa-star"></i></li>
+          </ul>
+          <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
+          <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.id}" onclick="registerPopup('${element.id}')">Register</button>
+
+      </div>
+  </div> <!-- singel course -->
+</div>
+<div class="modal fade" id="${element.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="${element.id}Title">Register for ${element.name}</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <form id="${element.id}form">
+  <div class="form-group">
+  <label for="name${element.id}">Name*</label>
+  <input type="text" class="form-control" id="name${element.id}" aria-describedby="nameHelp" placeholder="Enter name" required>
+</div>
+  <div class="form-group">
+    <label for="email${element.id}">Email address*</label>
+    <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email" required>
+  </div>
+  <div class="form-group">
+  <label for="phoneNumber${element.id}">Phone number*</label>
+  <input type="number" maxlength="10" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number" required>
+</div>
+<div class="form-group">
+<label for="description${element.id}">Description</label>
+<textarea type="text" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
+</div>
+</form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary" id="${element.id}submit" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
+  </div>
+</div>
+</div>
+</div>`;
 }
 
 function sendEmail(courseName, id) {
