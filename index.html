@@ -125,26 +125,6 @@
   <script src="js/map-script.js"></script>
 
   <script src="https://smtpjs.com/v3/smtp.js"></script>  
-
-  <script>
-    function sendEmail(courseName,id) {
-  Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "maringantikc@gmail.com",
-    Password: "64984B5E2D013B08CA5BA734B832F1F878EF",
-    port:2525,
-    To: 'maringantikc@gmail.com',
-    From: "macharyakc@gmail.com",
-    Subject: `Registration for ${courseName}`,
-    Body: `Name:${document.getElementById('name'+id).value}<br>
-    Email:${document.getElementById('email'+id).value}<br>
-    phoneNumber:${document.getElementById('phoneNumber'+id).value}`
-  })
-    .then(function (message) {
-      alert(message)
-    });
-}
-  </script>
 </body>
 
 </html>

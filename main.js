@@ -121,7 +121,7 @@ $(function() {
                   <li><i class="fa fa-star"></i></li>
               </ul>
               <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.id}" onclick="registerPopup(${element.name})">Register</button>
+              <button href="#" class="main-btn" data-toggle="modal" data-target="#${element.id}" onclick="registerPopup(${element.id})">Register</button>
 
           </div>
       </div> <!-- singel course -->
@@ -157,7 +157,7 @@ $(function() {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="sendEmail(${element.name},${element.id})">Register</button>
+        <button type="button" class="btn btn-primary" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
       </div>
     </div>
   </div>
@@ -581,7 +581,7 @@ function next(currentPage){
                       <li><i class="fa fa-star"></i></li>
                   </ul>
                   <a href="#"><h4>Learn ${element.name} from beginner to advanced</h4></a>
-                  <button href="#" class="main-btn " onclick="registerPopup(${element.name})">Register</button>
+                  <button href="#" class="main-btn " onclick="registerPopup(${element.id})">Register</button>
   
               </div>
           </div> <!-- singel course -->
@@ -617,7 +617,7 @@ function next(currentPage){
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" onclick="sendEmail(${element.name},${element.id})">Register</button>
+            <button type="button" class="btn btn-primary" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
           </div>
         </div>
       </div>
@@ -635,5 +635,25 @@ function registerPopup(id){
   //$('#myModal').modal('hide');
 }
 
+function sendEmail(courseName, id) {
+  let name = document.getElementById('name' + id).value;
+  let email = document.getElementById('email' + id).value;
+  let phone = document.getElementById('phoneNumber' + id).value;
+  Email.send({
+    Host: "smtp.elasticemail.com",
+    Username: "maringantikc@gmail.com",
+    Password: "64984B5E2D013B08CA5BA734B832F1F878EF",
+    port: 2525,
+    To: 'macharyakc@gmail.com',
+    From: "maringantikc@gmail.com",
+    Subject: `Registration for ${courseName}`,
+    Body: `Name:${name}<br>
+            Email:${email}<br>
+            phoneNumber:${phone}`
+  })
+    .then(function (message) {
+      alert(message)
+    });
+}
 
 
