@@ -686,12 +686,15 @@ function sendEmail(courseName, id) {
     Username: "maringantikc@gmail.com",
     Password: "64984B5E2D013B08CA5BA734B832F1F878EF",
     port: 2525,
-    To: 'macharyakc@gmail.com',
-    From: "maringantikc@gmail.com",
+    To: 'vedvisiontrainings@gmail.com',
+    From: "info@vedvisiontrainings.com",
     Subject: `Registration for ${courseName}`,
-    Body: `Name:${name}<br>
-            Email:${email}<br>
-            phoneNumber:${phone}`
+    Body: `<html>
+    <ul style="list-style:none">
+            <li style="padding:20px;margin:4px 5px;background-color:#f1f1f1">Name:${name}</li><br>
+            <li style="padding:20px;margin:4px 5px;background-color:#f1f1f1">Email:${email}</li><br>
+            <li style="padding:20px;margin:4px 5px;background-color:#f1f1f1">phoneNumber:${phone}</li>
+            </html>`
   })
     .then(function (message) {
       alert(message)
