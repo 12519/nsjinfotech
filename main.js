@@ -405,7 +405,7 @@ function sendEmail(courseName, id) {
     Username: "maringantikc@gmail.com",
     Password: "64984B5E2D013B08CA5BA734B832F1F878EF",
     port: 2525,
-    To: 'vedvisiontrainings@gmail.com',
+    To: 'maringantikc@gmail.com',
     From: "info@vedvisiontrainings.com",
     Subject: `Registration for ${courseName}`,
     Body: `<html>
