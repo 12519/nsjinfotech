@@ -368,28 +368,9 @@ function getTemp(element) {
     </button>
   </div>
   <div class="modal-body">
-  <form id="${element.id}form">
-  <div class="form-group">
-  <label for="name${element.id}">Name*</label>
-  <input type="text" class="form-control" id="name${element.id}" aria-describedby="nameHelp" placeholder="Enter name" required>
-</div>
-  <div class="form-group">
-    <label for="email${element.id}">Email address*</label>
-    <input type="email" class="form-control" id="email${element.id}" aria-describedby="emailHelp" placeholder="Enter email" required>
-  </div>
-  <div class="form-group">
-  <label for="phoneNumber${element.id}">Phone number*</label>
-  <input type="number" maxlength="10" class="form-control" id="phoneNumber${element.id}" aria-describedby="phoneHelp" placeholder="Enter Phone number" required>
-</div>
-<div class="form-group">
-<label for="description${element.id}">Description</label>
-<textarea type="text" class="form-control" rows="3" id="description${element.id}" placeholder="Enter Description"></textarea>
-</div>
-</form>
-  </div>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdE0s9O_5gfP3KlOAm-UnUGV1FT4D1ZK9LBmcW_qgHwXR22Q/viewform?embedded=true" width="478" height="508" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>  </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" class="btn btn-primary" id="${element.id}submit" onclick="sendEmail('${element.name}','${element.id}')">Register</button>
   </div>
 </div>
 </div>
